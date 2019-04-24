@@ -15,17 +15,14 @@ const wrapperStyles = {
   margin: "0 auto",
 }
 
-const include = [
-  "ARG", "BOL", "BRA", "CHL", "COL", "ECU",
-  "GUY", "PRY", "PER", "SUR", "URY", "VEN",
-]
+const include = []
 
 const markers = [
-  { markerOffset: -25, name: "Zurich", coordinates: [8.541694, 47.376887] },
+  { markerOffset: 35, name: "Zurich", coordinates: [8.541694, 47.376887] },
   { markerOffset: -25, name: "Auckland", coordinates: [174.763332, -36.84846] },
   { markerOffset: 35, name: "Sydney", coordinates: [151.209296, -33.86882 ] },
   { markerOffset: 35, name: "Santiago", coordinates: [-70.669265, -33.44889] },
-  { markerOffset: -25, name: "London", coordinates: [-0.127758, 51.507351] },
+  { markerOffset: -25, name: "Londres", coordinates: [-0.127758, 51.507351] },
   { markerOffset: 25, name: "Georgia", coordinates: [-82.900075, 32.165622] },
 ]
 
@@ -102,6 +99,7 @@ class Map extends Component {
                     y={marker.markerOffset}
                     style={{
                       fontFamily: "Roboto, sans-serif",
+                      fontWeight: "bold",
                       fill: "#607D8B",
                     }}
                     >
