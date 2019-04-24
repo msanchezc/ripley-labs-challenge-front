@@ -1,26 +1,44 @@
 import React from 'react';
-import logo from './logo.svg';
+import io from 'socket.io-client'
+import Weather from './weather';
+import Map from './maps';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      weather: {
+        Santiago: null,
+        Zurich: null,
+        Auckland: null,
+        Sydney: null,
+        Londres: null,
+        Georgia: null
+      }
+    }
+  }
+
+  componentDidMount() {
+    this.socket = io('http://localhost:3001');
+    this.socket.on('update', data => {
+      this.setState({weather: data});
+      console.log(this.state.weather);
+    })
+  }
+
+  render () {
+    return (
+      <div className="App">
+        { this.state.weather.Santiago && <Weather weather={this.state.weather.Santiago} /> }
+        { this.state.weather.Zurich && <Weather weather={this.state.weather.Zurich} /> }
+        { this.state.weather.Auckland && <Weather weather={this.state.weather.Auckland} /> }
+        { this.state.weather.Sydney && <Weather weather={this.state.weather.Sydney} /> }
+        { this.state.weather.Londres && <Weather weather={this.state.weather.Londres} /> }
+        { this.state.weather.Georgia && <Weather weather={this.state.weather.Georgia} /> }
+      </div>
+    )
+  }
 }
 
 export default App;
