@@ -3,7 +3,7 @@
 ## Overview
 This application displays the current time and temperature from six cities, getting the data from a server using websockets.
 
-## Installation
+## Installation
 After cloning the repo, you must install the project's dependencies as usual by navigating to its root folder and issuing the following command in a terminal:
 
 `$ npm install`
