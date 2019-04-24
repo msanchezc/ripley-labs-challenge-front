@@ -1,7 +1,7 @@
 import React from 'react';
 import io from 'socket.io-client'
 import Weather from './weather';
-import Map from './maps';
+import Map from './map';
 import './App.css';
 
 class App extends React.Component {
